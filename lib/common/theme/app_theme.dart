@@ -3,12 +3,33 @@ import 'package:news_c18/common/theme/text_styles.dart';
 
 class AppTheme {
   static ThemeData lightTheme = ThemeData(
+    appBarTheme: AppBarTheme(
+      backgroundColor: Colors.white,
+      elevation: 0,
+      foregroundColor: AppColors.blackColor,
+      titleTextStyle: AppTextStyles.style18w500.copyWith(
+        color: AppColors.blackColor,
+        fontWeight: FontWeight.w500,
+      ),
+    ),
     scaffoldBackgroundColor: Colors.white,
     colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
+    textTheme: _generateTextTheme(AppColors.blackColor),
   );
   static ThemeData darkTheme = ThemeData(
+    appBarTheme: AppBarTheme(
+      backgroundColor: AppColors.blackColor,
+      elevation: 0,
+      foregroundColor: Colors.white,
+      titleTextStyle: AppTextStyles.style18w500.copyWith(
+        color: Colors.white,
+        fontWeight: FontWeight.w500,
+      ),
+    ),
+
     scaffoldBackgroundColor: AppColors.blackColor,
     colorScheme: ColorScheme.fromSeed(seedColor: AppColors.blackColor),
+    textTheme: _generateTextTheme(Colors.white),
   );
 
   static TextTheme _generateTextTheme(Color color) {
