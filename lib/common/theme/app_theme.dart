@@ -12,11 +12,14 @@ class AppTheme {
         fontWeight: FontWeight.w500,
       ),
     ),
+    highlightColor: AppColors.blackColor,
     scaffoldBackgroundColor: Colors.white,
+    primaryColor: Colors.white,
     colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
     textTheme: _generateTextTheme(AppColors.blackColor),
   );
   static ThemeData darkTheme = ThemeData(
+    highlightColor: Colors.white,
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.blackColor,
       elevation: 0,
@@ -26,6 +29,7 @@ class AppTheme {
         fontWeight: FontWeight.w500,
       ),
     ),
+    primaryColor: AppColors.blackColor,
 
     scaffoldBackgroundColor: AppColors.blackColor,
     colorScheme: ColorScheme.fromSeed(seedColor: AppColors.blackColor),
