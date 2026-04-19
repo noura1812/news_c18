@@ -22,6 +22,7 @@ class NewsCard extends StatelessWidget {
             child: Image.network(
               "https://static.vecteezy.com/system/resources/thumbnails/057/068/323/small/single-fresh-red-strawberry-on-table-green-background-food-fruit-sweet-macro-juicy-plant-image-photo.jpg",
               height: 220.h,
+              width: double.infinity,
               fit: BoxFit.fill,
             ),
           ),

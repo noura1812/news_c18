@@ -12,7 +12,7 @@ class DrawerView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: context.theme.scaffoldBackgroundColor,
-      child: Column(
+      child: ListView(
         children: [
           ColoredBox(
             color: context.theme.highlightColor,
