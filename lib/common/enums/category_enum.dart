@@ -4,7 +4,7 @@ enum CategoryEnum {
   general,
   business,
   entertainment,
-  tech;
+  technology;
 
   String getImage() {
     switch (this) {
@@ -14,7 +14,7 @@ enum CategoryEnum {
         return Assets.images.busniess.path;
       case CategoryEnum.entertainment:
         return Assets.images.entertainment.path;
-      case CategoryEnum.tech:
+      case CategoryEnum.technology:
         return Assets.images.tech.path;
     }
   }
