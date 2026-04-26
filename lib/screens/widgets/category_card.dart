@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_c18/common/enums/category_enum.dart';
+import 'package:news_c18/screens/cubit/cubit/main_layer_cubit.dart';
+import 'package:news_c18/screens/cubit/resources/resources_cubit.dart';
 import 'package:news_c18/screens/provider/main_screen_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -10,7 +13,7 @@ class CategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
-    MainScreenProvider provider = Provider.of<MainScreenProvider>(context, listen: false);
+    MainLayerCubit cubit = BlocProvider.of<MainLayerCubit>(context, listen: false);
     return Container(
       padding: EdgeInsets.symmetric(vertical: 30),
       margin: EdgeInsets.only(bottom: 10.h),
@@ -30,7 +33,11 @@ class CategoryCard extends StatelessWidget {
             style: theme.textTheme.displayLarge!.copyWith(color: theme.primaryColor),
           ),
           InkWell(
-            onTap: () => provider.selectCategory(category),
+            onTap: () {
+              cubit.selectCategory(category);
+              // BlocProvider.of<ResourcesCubit>(context, listen: false).getResources(category.name);
+              cubit.getResources(category.name);
+            },
             child: Container(
               height: 54.h,
               decoration: BoxDecoration(

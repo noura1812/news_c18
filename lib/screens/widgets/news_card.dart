@@ -29,7 +29,9 @@ class NewsCard extends StatelessWidget {
               fit: BoxFit.fill,
               errorWidget: (context, url, error) => SizedBox(
                 height: 220.h,
-                child: Center(child: Icon(Icons.broken_image)),
+                child: Center(
+                  child: Icon(Icons.broken_image, color: context.theme.highlightColor, size: 50.r),
+                ),
               ),
               placeholder: (context, url) => SizedBox(
                 height: 220.h,
