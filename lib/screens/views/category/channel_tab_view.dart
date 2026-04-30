@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:news_c18/common/widgets/custom_error_widget.dart';
 import 'package:news_c18/models/artecle_response_model.dart';
 import 'package:news_c18/screens/cubit/articles/articles_cubit.dart';
 import 'package:news_c18/screens/cubit/cubit/main_layer_cubit.dart';
@@ -50,7 +51,16 @@ class _ResourceTabViewState extends State<ResourceTabView> {
         if (state.articlesLoading) {
           return Center(child: CircularProgressIndicator());
         } else if (state.articlesErrorMessage != null) {
-          return Center(child: Text(state.articlesErrorMessage!));
+          return CustomErrorWidget(
+            errorMessage: state.articlesErrorMessage!,
+            onRefresh: () {
+              BlocProvider.of<MainLayerCubit>(
+                context,
+                listen: false,
+              ).getArticles(widget.resourceId);
+            },
+          );
+          //Center(child: Text(state.articlesErrorMessage!));
         } else if (state.articleResponseModel != null) {
           ArticleResponseModel articleResponseModel = state.articleResponseModel!;
 

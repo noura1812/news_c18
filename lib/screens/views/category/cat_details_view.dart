@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_c18/common/extensions/context_extensions.dart';
+import 'package:news_c18/common/widgets/custom_error_widget.dart';
 import 'package:news_c18/models/resource_model.dart';
 import 'package:news_c18/screens/cubit/cubit/main_layer_cubit.dart';
 import 'package:news_c18/screens/cubit/resources/resources_cubit.dart';
@@ -17,7 +18,12 @@ class CatDetailsView extends StatelessWidget {
         if (state.resourcesLoading) {
           return Center(child: CircularProgressIndicator());
         } else if (state.resourcesErrorMessage != null) {
-          return Center(child: Text(state.resourcesErrorMessage!));
+          return CustomErrorWidget(
+            errorMessage: state.resourcesErrorMessage!,
+            onRefresh: () {
+              BlocProvider.of<MainLayerCubit>(context, listen: false).getResources();
+            },
+          ); //Center(child: Text());
         } else if (state.resourceModel != null) {
           ResourceModel resourceModel = state.resourceModel!;
 

@@ -22,7 +22,7 @@ class Sources {
   String? url;
   String? category;
   String? language;
-  int? country;
+  String? country;
 
   Sources({
     this.id,

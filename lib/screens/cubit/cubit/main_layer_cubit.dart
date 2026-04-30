@@ -43,10 +43,13 @@ class MainLayerCubit extends Cubit<MainLayerState> {
     }
   }
 
-  getResources(String catId) async {
+  getResources() async {
+    if (state.selectedCategory == null) return;
     emit(state.copyWith(resourcesLoading: true));
 
-    Response<ResourceModel> response = await NetworkServices.getResources(catId);
+    Response<ResourceModel> response = await NetworkServices.getResources(
+      state.selectedCategory!.name,
+    );
     switch (response) {
       case Success<ResourceModel>():
         ResourceModel resourceModel = response.data;
