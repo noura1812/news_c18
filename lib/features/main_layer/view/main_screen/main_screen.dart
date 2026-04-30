@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_c18/screens/cubit/articles/articles_cubit.dart';
-import 'package:news_c18/screens/cubit/cubit/main_layer_cubit.dart';
-import 'package:news_c18/screens/cubit/resources/resources_cubit.dart';
-import 'package:news_c18/screens/views/category/cat_details_view.dart';
-import 'package:news_c18/screens/views/drawer_view.dart';
-import 'package:news_c18/screens/views/home/home_view.dart';
+import 'package:news_c18/features/main_layer/model/data_source/network_services.dart';
+import 'package:news_c18/features/main_layer/view_model/cubit/articles/articles_cubit.dart';
+import 'package:news_c18/features/main_layer/view_model/cubit/cubit/main_layer_cubit.dart';
+import 'package:news_c18/features/main_layer/view_model/cubit/resources/resources_cubit.dart';
+import 'package:news_c18/features/main_layer/model/repository/main_layer_repository.dart';
+import 'package:news_c18/features/main_layer/view/views/category/cat_details_view.dart';
+import 'package:news_c18/features/main_layer/view/views/drawer_view.dart';
+import 'package:news_c18/features/main_layer/view/views/home/home_view.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -16,7 +18,7 @@ class MainScreen extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => ResourcesCubit()),
         BlocProvider(create: (context) => ArticlesCubit()),
-        BlocProvider(create: (context) => MainLayerCubit()),
+        BlocProvider(create: (context) => MainLayerCubit(MainLayerRepository(NetworkServices()))),
       ],
       child: BlocBuilder<MainLayerCubit, MainLayerState>(
         builder: (context, state) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_c18/common/extensions/context_extensions.dart';
-import 'package:news_c18/models/artecle_response_model.dart';
+import 'package:news_c18/features/main_layer/model/models/artecle_response_model.dart';
 import 'package:timeago/timeago.dart' as timeAgo;
 import 'package:cached_network_image/cached_network_image.dart';
 

@@ -2,15 +2,15 @@ import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:news_c18/common/enums/category_enum.dart';
 import 'package:news_c18/common/response_mode/response_model.dart';
-import 'package:news_c18/models/artecle_response_model.dart';
-import 'package:news_c18/models/resource_model.dart';
-import 'package:news_c18/network/network_services.dart';
+import 'package:news_c18/features/main_layer/model/models/artecle_response_model.dart';
+import 'package:news_c18/features/main_layer/model/models/resource_model.dart';
+import 'package:news_c18/features/main_layer/model/repository/main_layer_repository.dart';
 
 part 'main_layer_state.dart';
 
 class MainLayerCubit extends Cubit<MainLayerState> {
-  MainLayerCubit() : super(MainLayerState());
-
+  MainLayerCubit(this._mainLayerRepository) : super(MainLayerState());
+  final MainLayerRepository _mainLayerRepository;
   selectCategory(CategoryEnum category) {
     emit(state.copyWith(selectedCategory: category));
   }
@@ -22,7 +22,7 @@ class MainLayerCubit extends Cubit<MainLayerState> {
   getArticles(String resourceId) async {
     emit(state.copyWith(articlesLoading: true));
 
-    Response<ArticleResponseModel> response = await NetworkServices.getArticles(resourceId);
+    Response<ArticleResponseModel> response = await _mainLayerRepository.getArticles(resourceId);
     switch (response) {
       case Success<ArticleResponseModel>():
         emit(
@@ -47,7 +47,7 @@ class MainLayerCubit extends Cubit<MainLayerState> {
     if (state.selectedCategory == null) return;
     emit(state.copyWith(resourcesLoading: true));
 
-    Response<ResourceModel> response = await NetworkServices.getResources(
+    Response<ResourceModel> response = await _mainLayerRepository.getResources(
       state.selectedCategory!.name,
     );
     switch (response) {

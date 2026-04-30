@@ -1,4 +1,4 @@
-import 'package:news_c18/models/resource_model.dart';
+import 'package:news_c18/features/main_layer/model/models/resource_model.dart';
 
 abstract class ResourcesCubitState {}
 

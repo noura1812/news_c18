@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_c18/common/enums/category_enum.dart';
-import 'package:news_c18/screens/cubit/cubit/main_layer_cubit.dart';
+import 'package:news_c18/features/main_layer/view_model/cubit/cubit/main_layer_cubit.dart';
 
 class CategoryCard extends StatelessWidget {
   const CategoryCard({super.key, required this.category});

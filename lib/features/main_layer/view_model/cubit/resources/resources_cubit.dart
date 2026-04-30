@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_c18/models/resource_model.dart';
-import 'package:news_c18/network/network_services.dart';
-import 'package:news_c18/screens/cubit/resources/resources_cubit_state.dart';
+import 'package:news_c18/features/main_layer/model/models/resource_model.dart';
+import 'package:news_c18/features/main_layer/model/data_source/network_services.dart';
+import 'package:news_c18/features/main_layer/view_model/cubit/resources/resources_cubit_state.dart';
 
 class ResourcesCubit extends Cubit<ResourcesCubitState> {
   ResourcesCubit() : super(ResourcesCubitInitialState());

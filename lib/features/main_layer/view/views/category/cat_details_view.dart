@@ -3,11 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_c18/common/extensions/context_extensions.dart';
 import 'package:news_c18/common/widgets/custom_error_widget.dart';
-import 'package:news_c18/models/resource_model.dart';
-import 'package:news_c18/screens/cubit/cubit/main_layer_cubit.dart';
-import 'package:news_c18/screens/cubit/resources/resources_cubit.dart';
-import 'package:news_c18/screens/cubit/resources/resources_cubit_state.dart';
-import 'package:news_c18/screens/views/category/channel_tab_view.dart';
+import 'package:news_c18/features/main_layer/model/models/resource_model.dart';
+import 'package:news_c18/features/main_layer/view_model/cubit/cubit/main_layer_cubit.dart';
+import 'package:news_c18/features/main_layer/view_model/cubit/resources/resources_cubit.dart';
+import 'package:news_c18/features/main_layer/view_model/cubit/resources/resources_cubit_state.dart';
+import 'package:news_c18/features/main_layer/view/views/category/channel_tab_view.dart';
 
 class CatDetailsView extends StatelessWidget {
   const CatDetailsView({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_c18/models/artecle_response_model.dart';
-import 'package:news_c18/network/network_services.dart';
+import 'package:news_c18/features/main_layer/model/models/artecle_response_model.dart';
+import 'package:news_c18/features/main_layer/model/data_source/network_services.dart';
 
 part "articles_cubit_state.dart";
 

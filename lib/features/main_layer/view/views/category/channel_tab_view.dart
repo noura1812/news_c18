@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_c18/common/widgets/custom_error_widget.dart';
-import 'package:news_c18/models/artecle_response_model.dart';
-import 'package:news_c18/screens/cubit/articles/articles_cubit.dart';
-import 'package:news_c18/screens/cubit/cubit/main_layer_cubit.dart';
-import 'package:news_c18/screens/widgets/news_card.dart';
+import 'package:news_c18/features/main_layer/model/models/artecle_response_model.dart';
+import 'package:news_c18/features/main_layer/view_model/cubit/articles/articles_cubit.dart';
+import 'package:news_c18/features/main_layer/view_model/cubit/cubit/main_layer_cubit.dart';
+import 'package:news_c18/features/main_layer/view/widgets/news_card.dart';
 
 class ResourceTabView extends StatefulWidget {
   const ResourceTabView({super.key, required this.resourceId});

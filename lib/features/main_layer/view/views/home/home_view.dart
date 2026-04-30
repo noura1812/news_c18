@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_c18/common/enums/category_enum.dart';
-import 'package:news_c18/screens/widgets/category_card.dart';
+import 'package:news_c18/features/main_layer/view/widgets/category_card.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
