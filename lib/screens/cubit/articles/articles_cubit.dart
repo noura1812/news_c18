@@ -8,13 +8,13 @@ class ArticlesCubit extends Cubit<ArticlesCubitState> {
   ArticlesCubit() : super(ArticlesInitialCubitState());
 
   getArticles(String resourceId) async {
-    emit(ArticlesLoadingState());
-    try {
-      ArticleResponseModel? articles = await NetworkServices.getArticles(resourceId);
-      if (articles == null) throw "something went wrong. try again later";
-      emit(ArticlesSuccessState(articleResponseModel: articles));
-    } catch (e) {
-      emit(ArticlesFailureState(errorMessage: e.toString()));
-    }
+    // emit(ArticlesLoadingState());
+    // try {
+    //   ArticleResponseModel? articles = await NetworkServices.getArticles(resourceId);
+    //   if (articles == null) throw "something went wrong. try again later";
+    //   emit(ArticlesSuccessState(articleResponseModel: articles));
+    // } catch (e) {
+    //   emit(ArticlesFailureState(errorMessage: e.toString()));
+    // }
   }
 }

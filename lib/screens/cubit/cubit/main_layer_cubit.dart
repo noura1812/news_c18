@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:news_c18/common/enums/category_enum.dart';
+import 'package:news_c18/common/response_mode/response_model.dart';
 import 'package:news_c18/models/artecle_response_model.dart';
 import 'package:news_c18/models/resource_model.dart';
 import 'package:news_c18/network/network_services.dart';
@@ -20,46 +21,40 @@ class MainLayerCubit extends Cubit<MainLayerState> {
 
   getArticles(String resourceId) async {
     emit(state.copyWith(articlesLoading: true));
-    try {
-      ArticleResponseModel? articles = await NetworkServices.getArticles(resourceId);
-      if (articles == null) throw "something went wrong. try again later";
-      emit(
-        state.copyWith(
-          articlesLoading: false,
-          articleResponseModel: articles,
-          articlesErrorMessage: null,
-        ),
-      );
-    } catch (e) {
-      emit(
-        state.copyWith(
-          articlesLoading: false,
-          articleResponseModel: null,
-          articlesErrorMessage: e.toString(),
-        ),
-      );
+
+    Response<ArticleResponseModel> response = await NetworkServices.getArticles(resourceId);
+    switch (response) {
+      case Success<ArticleResponseModel>():
+        emit(
+          state.copyWith(
+            articlesLoading: false,
+            articleResponseModel: response.data,
+            articlesErrorMessage: null,
+          ),
+        );
+      case Failure<ArticleResponseModel>():
+        emit(
+          state.copyWith(
+            articlesLoading: false,
+            articleResponseModel: null,
+            articlesErrorMessage: response.error.toString(),
+          ),
+        );
     }
   }
 
   getResources(String catId) async {
     emit(state.copyWith(resourcesLoading: true));
 
-    try {
-      ResourceModel? resources = await NetworkServices.getResources(catId);
-      if (resources == null) throw "something went wrong try again later";
-      emit(
-        state.copyWith(
-          resourcesLoading: false,
-          resourcesErrorMessage: null,
-          resourceModel: resources,
-        ),
-      );
-    } catch (e) {
-      state.copyWith(
-        resourcesLoading: false,
-        resourcesErrorMessage: e.toString(),
-        resourceModel: null,
-      );
+    Response<ResourceModel> response = await NetworkServices.getResources(catId);
+    switch (response) {
+      case Success<ResourceModel>():
+        ResourceModel resourceModel = response.data;
+        emit(state.copyWith(resourcesLoading: false, resourceModel: resourceModel));
+      case Failure<ResourceModel>():
+        emit(
+          state.copyWith(resourcesLoading: false, resourcesErrorMessage: response.error.toString()),
+        );
     }
   }
 }

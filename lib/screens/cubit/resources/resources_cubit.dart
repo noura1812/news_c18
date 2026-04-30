@@ -9,12 +9,12 @@ class ResourcesCubit extends Cubit<ResourcesCubitState> {
   getResources(String catId) async {
     emit(ResourceLoadingState());
 
-    try {
-      ResourceModel? resources = await NetworkServices.getResources(catId);
-      if (resources == null) throw "something went wrong try again later";
-      emit(ResourceSuccessState(resourceModel: resources));
-    } catch (e) {
-      emit(ResourceFailureState(errorMessage: e.toString()));
-    }
+    // try {
+    //   ResourceModel? resources = await NetworkServices.getResources(catId);
+    //   if (resources == null) throw "something went wrong try again later";
+    //   emit(ResourceSuccessState(resourceModel: resources));
+    // } catch (e) {
+    //   emit(ResourceFailureState(errorMessage: e.toString()));
+    // }
   }
 }
