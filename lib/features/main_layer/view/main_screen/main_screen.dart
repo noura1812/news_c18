@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_c18/common/dependency_injection/dependency_injection.dart';
+import 'package:news_c18/common/dependency_injection/get_it.dart';
 import 'package:news_c18/features/main_layer/view_model/cubit/articles/articles_cubit.dart';
 import 'package:news_c18/features/main_layer/view_model/cubit/cubit/main_layer_cubit.dart';
 import 'package:news_c18/features/main_layer/view_model/cubit/resources/resources_cubit.dart';
@@ -17,7 +18,7 @@ class MainScreen extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => ResourcesCubit()),
         BlocProvider(create: (context) => ArticlesCubit()),
-        BlocProvider(create: (context) => DependencyInjection.mainLayerCubit),
+        BlocProvider(create: (context) => getIt.get<MainLayerCubit>()),
       ],
       child: BlocBuilder<MainLayerCubit, MainLayerState>(
         builder: (context, state) {

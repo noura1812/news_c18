@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 import 'package:news_c18/common/enums/category_enum.dart';
 import 'package:news_c18/common/response_mode/response_model.dart';
@@ -8,6 +9,7 @@ import 'package:news_c18/features/main_layer/model/repository/main_layer_reposit
 
 part 'main_layer_state.dart';
 
+@injectable
 class MainLayerCubit extends Cubit<MainLayerState> {
   MainLayerCubit(this._mainLayerRepository) : super(MainLayerState());
   final MainLayerRepository _mainLayerRepository;

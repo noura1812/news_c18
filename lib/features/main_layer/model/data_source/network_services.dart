@@ -1,10 +1,12 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:news_c18/common/error/error_model.dart';
 import 'package:news_c18/features/main_layer/model/models/artecle_response_model.dart';
 import 'package:news_c18/features/main_layer/model/models/resource_model.dart';
 import 'package:news_c18/common/endpoint/endpoints.dart';
 import 'package:news_c18/common/response_mode/response_model.dart' as resp;
 
+@singleton
 class NetworkServices {
   final Dio _dio = Dio(
     BaseOptions(baseUrl: Endpoints.baseUrl, headers: {"X-Api-Key": Endpoints.apiKey}),

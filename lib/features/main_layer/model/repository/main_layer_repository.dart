@@ -1,8 +1,10 @@
+import 'package:injectable/injectable.dart';
 import 'package:news_c18/common/response_mode/response_model.dart';
 import 'package:news_c18/features/main_layer/model/models/artecle_response_model.dart';
 import 'package:news_c18/features/main_layer/model/models/resource_model.dart';
 import 'package:news_c18/features/main_layer/model/data_source/network_services.dart';
 
+@injectable
 class MainLayerRepository {
   final NetworkServices _networkServices;
 
